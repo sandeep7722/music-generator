@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Music Generation</h2>
+    <form (submit)="generateMusic()">
+      <div class="form-group">
+        <label for="modelVersion">Model Version:</label>
+        <select class="form-control" id="modelVersion" [(ngModel)]="modelVersion" name="modelVersion">
+          <option value="melody">Melody</option>
+          <option value="large">Large</option>
+          <option value="encode-decode">Encode-Decode</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="prompt">Description:</label>
+        <input type="text" class="form-control" id="prompt" [(ngModel)]="prompt" name="prompt" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="inputAudio">Input Audio File:</label>
+        <input type="file" class="form-control" id="inputAudio" (change)="onFileSelected($event)" name="inputAudio">
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Generate Music</button>
+    </form>
+  
+    <div class="mt-4">
+      <p id="status">{{ status }}</p>
+      <p id="output">{{ output }}</p>
+    </div>
+  </div>
+  
